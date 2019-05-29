@@ -1,0 +1,16 @@
+/* pages/details/details.wxss */
+.info image{
+  width: 60rpx;
+  height: 60rpx;
+  vertical-align: middle
+}
+.info{
+  height: 80rpx;
+  line-height: 80rpx;
+  border-bottom: 1rpx solid #ccc;
+  padding:0 30rpx;
+  width: 700rpx;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
