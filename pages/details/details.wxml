@@ -1,0 +1,17 @@
+<!--pages/details/details.wxml-->
+
+<view class="container" >
+   <view class="info">
+      <label>地址：</label>{{details.address}}
+   </view>
+   <view class="info">
+      <image src="../../resource/img/{{details.type=='buy'?'buy':'sell'}}.png"></image>
+      {{details.type=='buy'?"求租":"转让"}}
+   </view>
+   <view class="info">
+      {{details.explain}}
+   </view>
+   <view class="info">
+      <label>联系方式：</label>{{details.tel}}
+   </view>
+</view>
