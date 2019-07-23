@@ -1,7 +1,51 @@
-<view class='container'>
-  <map id="map" longitude="{{longitude}}" latitude="{{latitude}}" scale="14" controls="{{controls}}" bindcontroltap="controltap" markers="{{markers}}" bindmarkertap="markertap" polyline="{{polyline}}"  show-location='true'></map>
+<!--index.wxml-->
+<!-- <view hidden="{{flag ? false : true}}"> Hidden </view> 测试三元表达式的-->
+<!-- <view class='getMarkers'>试用小程序</view> 测试访问接口的-->
+<view class='admin'>管理员微信：wxid_klwliq3enl9x22</view>
+<button open-type="share" type="primary" hover-class="other-button-hover" class='btn1' >转发</button>
+<button type="primary" hover-class="other-button-hover" class='btn2' bindtap='bt_click'>发布</button>
+<view class="section">
+  <view class="section section_gap" wx:for-items="{{array}}" wx:for-item="item" wx:key="{{item.index}}">
+    <view class="section__title">{{item.text}}</view>
+    <view class="section__ctn">
+      <!-- <view style="flex-direction:row;" class="flex-wrp">
+        <image class='bc_green'src="{{item.src}}"></image>
+        <image class='bc_red' src="{{item.src}}"></image>
+        <image class='bc_blue' src="{{item.src}}"></image>
+        <image class='bc_yellow' src="{{item.src}}"></image>
+        <image class='bc_pink'src="{{item.src}}"></image>
+      </view> -->
+
+      <block wx:for='{{item.src}}' wx:key='index' wx:for-item='srcItem' style="flex-direction:row;" class="flex-wrp">
+        <image bindtap='topic_preview' data-id='{{item.id}}' data-url='{{answerItem}}' class='img_css' src='{{srcItem.img}}'></image>
+      </block>
+
+      <view class="info">
+        <view>{{item.address}}</view><view>{{item.event}}</view><view>{{item.date}}</view>
+      </view>
+
+      <view class="info">
+        <view>{{item.person}}</view>
+        <view>{{item.price}}</view>
+        <view bindtap='phonecall' class='tel' style="color:red;" data-sss='{{index}}'>{{item.tel}}</view>
+      </view>
+
+      <view>
+        <view class="divLine"></view>
+      </view>
+
+    </view>
+  </view>
 </view>
-<view class='nav'>
-  <view bindtap='handlepublish'>发布</view>
-  <view bindtap='handlesearch'>搜索</view>
-</view>
+
+<!-- <view class="section">
+  <view class="section__title">flex-direction: row</view>
+  <view class="flex-wrp" style="flex-direction:row;">
+    <view class="flex-item bc_green">1</view>
+    <view class="flex-item bc_red">2</view>
+    <view class="flex-item bc_blue">3</view>
+    <view class="flex-item bc_yellow">4</view>
+    <view class="flex-item bc_pink">5</view>
+  </view>
+</view> -->
+

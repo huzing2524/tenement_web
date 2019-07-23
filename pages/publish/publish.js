@@ -1,38 +1,49 @@
 //logs.js
 // pages/publish/publish.js
+
+var util = require('../../utils/util.js')
 Page({
   data: {
-    address: "点击选择，要勾选哦",
-    Explain:'填写您的具体需求',
-    connect:'填写您的联系方式',
-    flag:true
+    swiperIndex: 0,
+    image: [],
+    Explain: "填写您的具体需求title0",
+    Explain1:'填写您的具体需求title1',
+    Explain2: '填写您的具体需求title2',
+    Explain4: '填写您的具体需求title4',
+    Explain5: '填写您的具体需求title5',
+    Explain6: '填写您的具体需求title6',
+    flag:true,
+    imglist: "../../resource/img/sell.png"
   },
-
+  swiperChange(e) {
+    var that = this;
+    that.setData({
+      swiperIndex: e.detail.current,           /*定义当前数据的swiperIndex等于当前数据的current*/
+    })
+  },
   info: {
-    type: "buy",
-    explain: ""
-  },
-  radioChange(e) { 
-    this.info.type = e.detail.value
+    pic:[]
   },
   handleinfo(e) {
-    this.info.explain = e.detail.value
+    this.info.title = e.detail.value
   },
-  handletel(e) {
+  handleinfo1(e) {
+    this.info.address = e.detail.value
+  },
+  handleinfo2(e) {
+    this.info.incident = e.detail.value
+  },
+  handleinfo4(e) {
+    this.info.name = e.detail.value
+  },
+  handleinfo5(e) {
+    this.info.price = e.detail.value
+  },
+  handleinfo6(e) {
     this.info.tel = e.detail.value
   },
-  handleMap() {
-    const _this = this;
-    wx.chooseLocation({
-      success(data) {
-        _this.setData({
-          address: data.address
-        })
-        _this.info.address = data.address
-        _this.info.latitude = data.latitude
-        _this.info.longitude = data.longitude
-      }
-    })
+  handlepic(e) {
+    this.info.pic.push(e)
   },
   handleClick() {
     var _this = this;
@@ -53,5 +64,38 @@ Page({
     wx.navigateTo({
       url: '../index/index',
     })
-  }
+  },
+  uploadpic: function () {
+    let that = this;
+    wx.showActionSheet({
+      itemList: ['从相册中选择', '拍照'],
+      itemColor: "#f7982a",
+      success: function (res) {
+        if (!res.cancel) {
+          if (res.tapIndex == 0) {
+            that.chooseWxImage('album')
+          } else if (res.tapIndex == 1) {
+            that.chooseWxImage('camera')
+          }
+        }
+      }
+    })
+  },
+  chooseWxImage: function (type) {
+    var that = this;
+    wx.chooseImage({
+      count: 5,
+      sizeType: ['original', 'compressed'],
+      sourceType: [type],
+      success(res) {
+        const tempFilePaths = res.tempFilePaths
+        console.warn(tempFilePaths, 'tempFilePaths')
+        
+        that.setData({
+          image: [...that.data.image, ...tempFilePaths]
+        })
+        that.handlepic(tempFilePaths)
+      }
+    })
+  },
 })

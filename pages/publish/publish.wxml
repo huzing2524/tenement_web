@@ -1,32 +1,45 @@
 <!--logs.wxml-->
+
 <view class="container" wx:if="{{flag}}">
    <view class="info" bindtap='handleMap'>
-      <label>收货地址</label>
-      <input type="text" bindinput='handleinfo' placeholder='{{address}}'/>
+      <label>标题</label>
+      <input type="text" bindinput='handleinfo' placeholder='{{Explain}}'/>
    </view>
    <view class="info">
-      <label>类型</label>
-      <view class='select'>
-        <radio-group class="radio-group" bindchange="radioChange">
-          <label class="radio">
-            <radio value="buy" checked="true"/>求购
-          </label>
-          <label class="radio">
-            <radio value="sell"/>转让
-          </label>
-        </radio-group>
-      </view>
+      <label>地点</label>
+      <input type="text" bindinput='handleinfo1' placeholder='{{Explain1}}'/>
    </view>
    <view class="info">
-      <label>说明</label>
-       <input type="text" bindinput='handleinfo' placeholder='{{Explain}}'/>
+      <label>事件</label>
+      <input type="text" bindinput='handleinfo2' placeholder='{{Explain2}}'/>
+   </view>
+      <view class="info">
+      <label>姓名</label>
+      <input type="text" bindinput='handleinfo4' placeholder='{{Explain4}}'/>
+   </view>
+      <view class="info">
+      <label>价格</label>
+      <input type="text" bindinput='handleinfo5' placeholder='{{Explain5}}'/>
    </view>
    <view class="info">
-      <label>联系方式</label>
-       <input type="text" bindinput='handletel' placeholder='{{connect}}'/>
+      <label>电话</label>
+       <input type="text" bindinput='handleinfo6' placeholder='{{Explain6}}'/>
    </view>
-    <button bindtap='handleClick'>发布</button>
 </view>
+   <view class="info">
+      <button catchtap='uploadpic'>上传图片最多5张</button>
+   </view>
+
+    
+    <!-- <image src='{{ image }}'></image> -->
+    <view class="section_gap">
+      <image wx:for="{{image}}" wx:key="{{index}}" src="{{image[index]}}" class='img_css'></image>
+    </view>
+
+    <view class='pub'>
+    <button bindtap='handleClick' style="background-color:#289813;">发布</button>
+    </view>
+    
 
 <view class='mes' wx:if="{{!flag}}">
   <view>

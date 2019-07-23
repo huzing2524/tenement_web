@@ -1,20 +1,15 @@
 {
   "pages": [
+
     "pages/index/index",
-    "pages/search/search",
-    "pages/publish/publish",
-    "pages/details/details"
+    "pages/publish/publish"
   ],
   "window": {
-    "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#03bbd5",
-    "navigationBarTitleText": "租房交易平台",
-    "navigationBarTextStyle": "white"
-  },
-  "permission": {
-    "scope.userLocation": {
-      "desc": "授权信息"
-    }
+    "enablePullDownRefresh": true,
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChats",
+    "navigationBarTextStyle": "black"
   },
   "sitemapLocation": "sitemap.json"
 }
