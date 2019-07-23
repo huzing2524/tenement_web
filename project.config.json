@@ -8,12 +8,14 @@
 		"es6": true,
 		"postcss": true,
 		"minified": true,
-		"newFeature": true
+		"newFeature": true,
+		"autoAudits": false,
+		"checkInvalidKey": true
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.4.0",
+	"libVersion": "2.7.5",
 	"appid": "wx58b352605c6c9cde",
-	"projectname": "租房交易平台",
+	"projectname": "ethanol",
 	"debugOptions": {
 		"hidedInDevtools": []
 	},

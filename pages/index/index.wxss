@@ -1,38 +1,48 @@
 /**index.wxss**/
-.nav{
-  width: 100%;
-  height: 86rpx;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  position: fixed;
-  left: 0;
-  bottom: 0;
+.section__ctn{
+    text-align: center;
 }
-.nav view{
-  width: 100%;
-  height: 100%;
-  font-size: 35rpx;
-  text-align: center;
-  line-height: 86rpx;
-  color: #fff
+.info{
+  display: flex
 }
-.nav view:nth-child(1){
-  background: #ff9700
-}
-.nav view:nth-child(2){
-  background: #03bbd5
+.tel{
+  color: red
 }
 
-.container{
-  position: absolute;
-  left:0;
-  top:0;
-  bottom:86rpx;
-  right: 0;
-}
 
-.container map{
-  width: 100%;
-  height: 100%;
+@import "../lib/weui.wxss";
+
+.page-section{
+  margin-bottom: 20rpx;
+}
+.flex-wrp {display: flex;}
+.info{justify-content:space-around}
+.img_css {width:75px; height: 75px;}
+
+.divLine{
+ background: #E0E3DA;
+ width: 100%;
+ height: 5rpx;
+}
+.btn1 {
+  width: 14%;
+  background-color: rgb(33, 36, 187);
+  color: white;
+  border-radius: 98rpx;
+  position: fixed; 
+  bottom: 25px;
+  right: 3px;
+  font-size: 22rpx;
+}
+.btn2 {
+  width: 30%;
+  background-color: beige;
+  color: white;
+  border-radius: 98rpx;
+  position: fixed; 
+  bottom: 5px;
+  left: 135px;
+}
+.admin{
+  background-color:blanchedalmond
 }

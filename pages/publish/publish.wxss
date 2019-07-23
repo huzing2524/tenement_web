@@ -19,3 +19,19 @@
 icon,.mes text{
   vertical-align: middle
 }
+.info img,.uPicimg{
+  width: 100rpx;
+  height:100rpx
+}
+.section_gap {
+  display: flex;
+  flex-direction: row;
+}
+image {
+  display: block;
+  flex-basis: 33.333%;
+}
+.pub{
+  display: flex
+}
+.img_css {width:75px; height: 75px;}
