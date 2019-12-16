@@ -1,15 +1,48 @@
 {
   "pages": [
-
     "pages/index/index",
-    "pages/publish/publish"
+    "pages/publish/publish",
+    "pages/detail/detail",
+    "pages/personal/personal",
+    "pages/upload/upload",
+    "pages/admin_login/admin_login"
   ],
+  "tabBar": {
+    "color": "#666",
+    "selectedColor": "#268dcd",
+    "borderStyle": "white",
+    "backgroundColor": "#fafafa",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "",
+        "iconPath": "pages/icons/home_unselected.png",
+        "selectedIconPath": "pages/icons/home_selected.png"
+      },
+      {
+        "pagePath": "pages/publish/publish",
+        "text": "",
+        "iconPath": "pages/icons/publish_unselected.png",
+        "selectedIconPath": "pages/icons/publish_selected.png"
+      },
+      {
+        "pagePath": "pages/personal/personal",
+        "text": "",
+        "iconPath": "pages/icons/personal_unselected.png",
+        "selectedIconPath": "pages/icons/personal_selected.png"
+      }
+    ]
+  },
   "window": {
     "enablePullDownRefresh": true,
     "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChats",
+    "navigationBarTitleText": "武汉高旺能源",
     "navigationBarTextStyle": "black"
   },
-  "sitemapLocation": "sitemap.json"
+  "sitemapLocation": "sitemap.json",
+  "navigateToMiniProgramAppIdList": [
+    "wxcbe110fu2xaxedfu",
+    "wxfb1ff0f3u0abe913"
+  ]
 }

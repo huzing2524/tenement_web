@@ -1,50 +1,61 @@
 <!--logs.wxml-->
+<!-- <button type="primary" hover-class="other-button-hover" class='btn_admin' bindtap="admin">管理员</button> -->
 
 <view class="container" wx:if="{{flag}}">
-   <view class="info" bindtap='handleMap'>
-      <label>标题</label>
-      <input type="text" bindinput='handleinfo' placeholder='{{Explain}}'/>
-   </view>
-   <view class="info">
-      <label>地点</label>
-      <input type="text" bindinput='handleinfo1' placeholder='{{Explain1}}'/>
-   </view>
-   <view class="info">
-      <label>事件</label>
-      <input type="text" bindinput='handleinfo2' placeholder='{{Explain2}}'/>
-   </view>
-      <view class="info">
-      <label>姓名</label>
-      <input type="text" bindinput='handleinfo4' placeholder='{{Explain4}}'/>
-   </view>
-      <view class="info">
-      <label>价格</label>
-      <input type="text" bindinput='handleinfo5' placeholder='{{Explain5}}'/>
-   </view>
-   <view class="info">
-      <label>电话</label>
-       <input type="text" bindinput='handleinfo6' placeholder='{{Explain6}}'/>
-   </view>
+  <view class="publish">
+    <label>标题</label>
+    <input type="text" bindinput='handleinfo' placeholder-style="color: lightgrey;" placeholder='{{title}}' />
+  </view>
+  <view class="publish">
+    <label>地点</label>
+    <input type="text" bindinput='handleinfo1' placeholder-style="color: lightgrey;" placeholder='{{address}}' />
+  </view>
+  <view class="publish">
+    <label>事件</label>
+    <input type="text" bindinput='handleinfo2' placeholder-style="color: lightgrey;" placeholder='{{event}}' />
+  </view>
+  <view class="publish">
+    <label>姓名</label>
+    <input type="text" bindinput='handleinfo4' placeholder-style="color: lightgrey;" placeholder='{{name}}' />
+  </view>
+  <view class="publish">
+    <label>价格</label>
+    <input type="text" bindinput='handleinfo5' placeholder-style="color: lightgrey;" placeholder='{{price}}' />
+  </view>
+  <view class="publish">
+    <label>电话</label>
+    <input type="text" bindinput='handleinfo6' placeholder-style="color: lightgrey;" placeholder='{{contact}}' />
+  </view>
+  <view class="publish">
+    <label>图片</label>
+    <view class='cell_right'>{{uploaderNum}}/5</view>
+    <!-- <button class="upload_button" bindtap='chooseItem'>添 加</button> -->
+  </view>
+
+  <view class='uploader_cell'>
+  <view class='uploader_item' wx:for="{{uploaderList}}" wx:key="{{index}}">
+    <icon class='uploader_item_icon' bindtap='clearImg' data-index="{{index}}" type="clear" size="20" color="red" />
+    <image bindtap='showImg' data-index="{{index}}" src='{{item}}'></image>
+  </view>
+
+  <view class='uploader' bindtap='upload' wx:if="{{showUpload}}"></view>
+
+  <button class='publish_button' bindtap='handleClick' hover-class='hover_action' hover-stay-time="3000">{{publicinfo}}</button>
 </view>
-   <view class="info">
-      <button catchtap='uploadpic'>上传图片最多5张</button>
-   </view>
 
-    
-    <!-- <image src='{{ image }}'></image> -->
-    <view class="section_gap">
-      <image wx:for="{{image}}" wx:key="{{index}}" src="{{image[index]}}" class='img_css'></image>
-    </view>
+  <!-- <image src='{{ image }}'></image> -->
+  <!-- <view class="section_gap">
+    <image wx:for="{{image}}" wx:key="{{index}}" src="{{image[index]}}" class='img_css'></image>
+  </view> -->
 
-    <view class='pub'>
-    <button bindtap='handleClick' style="background-color:#289813;">发布</button>
-    </view>
-    
+  
 
-<view class='mes' wx:if="{{!flag}}">
-  <view>
-    <icon type="success" size="30"/>
-    <text>发布成功</text>  
+</view>
+
+<!-- <view class='mes' wx:if="{{!flag}}">
+  <view class="suc">
+    <icon type="success" size="30" />
+    <text>发布成功</text>
   </view>
   <button bindtap='handleHome'>返回首页</button>
-</view>
+</view> -->
