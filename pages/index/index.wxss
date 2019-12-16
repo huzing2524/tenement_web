@@ -1,4 +1,43 @@
 /**index.wxss**/
+
+/* 
+我的css 开始
+ */
+.item{
+  display: flex;
+  padding: 20rpx 40rpx;
+  border-bottom: 1rpx solid #eee;
+  cursor: pointer;
+}
+.item .my_image{
+  width: 128rpx;
+  height: 168rpx;
+  margin-right: 20rpx;
+}
+.item .meta{
+  flex: 1;
+}
+.item .meta .title{
+  display: block;
+  margin-bottom: 15rpx;
+}
+.item .meta .title{
+  font-size: 32rpx;
+  font-weight: bold;
+}
+.item .meta .info{
+  display: block;
+  font-size: 22rpx;
+  color: #3b3b3b;
+}
+
+/* 
+结束
+ */
+
+.section{
+  margin: 2rpx
+}
 .section__ctn{
     text-align: center;
 }
@@ -17,7 +56,7 @@
 }
 .flex-wrp {display: flex;}
 .info{justify-content:space-around}
-.img_css {width:75px; height: 75px;}
+.img_css {width:149rpx; height: 149rpx;}
 
 .divLine{
  background: #E0E3DA;
@@ -44,5 +83,32 @@
   left: 135px;
 }
 .admin{
-  background-color:blanchedalmond
+  margin: 2px;
+  background-color:blanchedalmond;
+  display: flex;
+  justify-content: space-between
 }
+.bt3 {
+position:relative;
+display:block;
+margin-left:auto;
+margin-right:auto;
+padding-left:0px;
+padding-right:0;
+box-sizing:border-box;
+font-size:17px;
+text-align:center;
+text-decoration:none;
+line-height:1.5;
+border-radius:5px;
+-webkit-tap-highlight-color:transparent;
+overflow:hidden;
+color:#f8f8f2;
+background-color:rgb(20, 204, 4);
+width: 200px;
+}
+.pas{
+  width: 80px;
+  margin: 2px;
+}
+
