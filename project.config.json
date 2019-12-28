@@ -22,7 +22,7 @@
 	"compileType": "miniprogram",
 	"libVersion": "2.0.4",
 	"appid": "wx58b352605c6c9cde",
-	"projectname": "ethanol",
+	"projectname": "tenement_web",
 	"debugOptions": {
 		"hidedInDevtools": []
 	},
