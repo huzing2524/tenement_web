@@ -6,20 +6,39 @@ const app = getApp()
 
 Page({
   data: {
+    title: '',
+    address: '',
+    event: '',
+    name: '',
+    price: '',
+    contact: '',    
+    images: [],
+
     uploaderList: [],
     uploaderNum: 0,
     showUpload: true,
-
-    publicinfo: "发 布",
-    swiperIndex: 0,
-    image: [],
-    title: '最多输入30字！',
-    address: '最多输入60字！',
-    event: '最多输入100字！',
-    name: '最多输入30字！',
-    price: '保留2位小数！',
-    contact: '请填写您的手机号！',
     flag: true
+  },
+
+  handleinfo(e) {
+    this.data.title = e.detail.value
+  },
+  handleinfo1(e) {
+    this.data.address = e.detail.value
+  },
+  handleinfo2(e) {
+    this.data.event = e.detail.value
+  },
+  handleinfo4(e) {
+    this.data.name = e.detail.value
+  },
+  handleinfo5(e) {
+    var price = e.detail.value
+    this.data.price = parseFloat(parseFloat(price).toFixed(2))
+  },
+  handleinfo6(e) {
+    var contact = e.detail.value
+    this.data.contact = contact
   },
 
   // 删除图片
@@ -69,103 +88,149 @@ Page({
           uploaderList: uploaderList,
           uploaderNum: uploaderList.length,
         })
-        console.log(uploaderList.length)
+        // console.log(uploaderList.length)
         console.log(uploaderList)
       }
     })
   },
 
-  chooseItem: function(e) {
-    wx.navigateTo({
-      url: '../upload/upload',
-    })
-  },
-  swiperChange(e) {
-    var that = this;
-    that.setData({
-      swiperIndex: e.detail.current,
-      /*定义当前数据的swiperIndex等于当前数据的current*/
-    })
-  },
-  info: {
-    images: []
-  },
-  handleinfo(e) {
-    this.info.title = e.detail.value
-  },
-  handleinfo1(e) {
-    this.info.address = e.detail.value
-  },
-  handleinfo2(e) {
-    this.info.event = e.detail.value
-  },
-  handleinfo4(e) {
-    this.info.name = e.detail.value
-  },
-  handleinfo5(e) {
-    var price = e.detail.value
-    this.info.price = parseFloat(price)
-  },
-  handleinfo6(e) {
-    var contact = e.detail.value
-    this.info.contact = contact
-  },
-  handlepic(e) {
-    this.info.images.push(e)
-  },
+  // swiperChange(e) {
+  //   var that = this;
+  //   that.setData({
+  //     swiperIndex: e.detail.current,
+  //     /*定义当前数据的swiperIndex等于当前数据的current*/
+  //   })
+  // },
+
+  // 防止按钮重复提交
   handleClick() {
-    let that = this;
-    console.log(that.info)
+    let that = this;    
+    that.handlePublishSuccess();
 
-    if (that.info.title && that.info.address && that.info.event && that.info.name && that.info.price && that.info.contact) {
-      wx.request({
-        url: 'http://www.luoliming.xyz/publication_info',
-        data: that.info,
-        method: "post",
-        success: function(res) {
-          that.handlePublishSuccess()
-          if (res.statusCode == '400') {
-            wx.showModal({
-              title: '提示',
-              content: res.data.errmsg,
-              showCancel: false,
-              success: function(res) {
-                if (res.confirm) {
-                  wx.redirectTo({
-                    url: '/index',
-                  })
-                }
+    if (that.data.title && that.data.address && that.data.event && that.data.name && that.data.price && that.data.contact) {
+      // 手机号码格式 正则表达式校验      
+      if (/^(13[0-9]|14[579]|15[0-3,5-9]|16[6]|17[0135678]|18[0-9]|19[89])\d{8}$/.test(that.data.contact)) {
+        // 价格 校验数据类型
+        if (!isNaN(that.data.price)) {
+          // 上传图片
+          for (let i = 0; i < that.data.uploaderList.length; i++) {
+            wx.getFileSystemManager().readFile({
+              filePath: that.data.uploaderList[i], // 选择图片返回的相对路径
+              encoding: 'base64', //编码格式
+              success: res => { //成功的回调
+                that.data.images.push(res.data)                
               }
             })
-          } else if (res.statusCode == '200') {
-            // wx.navigateTo({
-            //   url: '../index/index',
-            // })
-            wx.showModal({
-              title: '提示',
-              content: '发布成功！',
-              showCancel: false,
-              success: function(res) {
-                if (res.confirm) {
-                  wx.redirectTo({
-                    url: '../index/index',
-                  })
-                }
+          };
+          
+          that.setData({
+            images: [...that.data.images]
+          })
+          console.log('that.data', that.data);
+
+          wx.request({
+            url: 'http://192.168.31.66:8000/publication_info',
+            data: {
+              'title': that.data.title,
+              'address': that.data.address,
+              'event': that.data.event,
+              'name': that.data.name,
+              'price': that.data.price,
+              'contact': that.data.contact,
+              'images': that.data.images,
+            },
+            method: "post",
+            success: function(res) {
+              if (res.statusCode == '400') {
+                wx.showModal({
+                  title: '提示',
+                  content: res.data.errmsg,
+                  showCancel: false,
+                  success: function(res) {
+                    if (res.confirm) {
+                      wx.reLaunch({
+                        url: '../publish/publish',
+                      })
+                    }
+                  }
+                })
+              } else if (res.statusCode == '200') {
+                wx.showModal({
+                  title: '提示',
+                  content: '发布成功！',
+                  showCancel: false,
+                  success: function(res) {
+                    if (res.confirm) {
+                      wx.reLaunch({
+                        url: '../index/index',
+                      })
+                    }
+                  }
+                })
               }
-            })
-          }
-        },
-        fail: function() {
-          console.log("发布请求失败")
-
-
+            },
+            fail: function() {
+              wx.showModal({
+                title: '提示',
+                content: '发布信息失败，请重试！',
+                showCancel: false,
+                success: function(res) {
+                  if (res.confirm) {
+                    wx.reLaunch({
+                      url: '../publish/publish',
+                    });
+                  }
+                },
+              })
+            }
+          })
+        } else {
+          wx.showModal({
+            title: '提示',
+            content: '价格请输入数字！',
+            showCancel: false,
+            success: function(res) {
+              if (res.confirm) {
+                wx.reLaunch({
+                  url: '../publish/publish',
+                });
+              }
+            },
+          })
         }
-      })
+      } else {
+        wx.showModal({
+          title: '提示',
+          content: '手机号码格式错误！',
+          showCancel: false,
+          success: function(res) {
+            if (res.confirm) {
+              wx.reLaunch({
+                url: '../publish/publish',
+              });
+            }
+          },
+        })
+      }
     } else {
       wx.showModal({
         title: '提示',
         content: '请填写完整内容！',
-        showCancel: false
+        showCancel: false,
+        success: function(res) {
+          if (res.confirm) {
+            /* 
+            wx.redirectTo：关闭当前页，跳转到指定页。
+            wx.navigateTo：保留当前页，跳转到指定页。
+            wx.reLaunch：关闭所有页面，打开到应用内的某个页面。
+            wx.switchTap：只能用于跳转到tabbar页面，并关闭其他非tabbar页面。
+            wx.navigateBack：关闭当前页面，返回上一页面或多级页面。可通过 getCurrentPages()获取当前的页面栈，决定需要返回几层。
+            */
+            wx.reLaunch({
+              url: '../publish/publish',
+            });
+          }
+        },
       })
     }
   },
@@ -174,14 +239,6 @@ Page({
       flag: false
     })
   },
-
-
-
-  /* handleHome() {
-    wx.navigateBack({
-      url: '../index/index',
-    })
-  }, */
 
   /* uploadpic: function() {
     let that = this;
