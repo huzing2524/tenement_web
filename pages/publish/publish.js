@@ -124,7 +124,7 @@ Page({
           };
           
           that.setData({
-            images: [...that.data.images]
+            images: that.data.images
           })
           console.log('that.data', that.data);
 
