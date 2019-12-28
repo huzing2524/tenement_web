@@ -1,13 +1,15 @@
 <!--index.wxml-->
 <!-- <view hidden="{{flag ? false : true}}"> Hidden </view> 测试三元表达式的-->
-<view class='admin'>
+
+<!-- <view class='admin'> -->
   <!-- <label>密码</label>
   <input class="pas" type="text" bindinput='password' placeholder='{{psw}}' value="{{value}}" />
   <view>浏览量:{{num}}</view> -->
-  <view>
+
+  <!-- <view>
     <button class='bt3' bindtap='click'>厨具 佐料 粮油 装修</button>
   </view>
-</view>
+</view> -->
 <!-- <button open-type="share" type="primary" hover-class="other-button-hover" class='btn1'>转发</button> -->
 <!-- <button type="primary" hover-class="other-button-hover" class='btn2' bindtap='bt_click'>发布</button> -->
 <view class="section">

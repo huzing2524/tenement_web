@@ -5,14 +5,15 @@
  */
 .item{
   display: flex;
-  padding: 20rpx 40rpx;
+  padding: 10rpx 10rpx;
   border-bottom: 1rpx solid #eee;
   cursor: pointer;
 }
 .item .my_image{
-  width: 128rpx;
-  height: 168rpx;
+  width: 200rpx;
+  height: 250rpx;
   margin-right: 20rpx;
+  margin-left: 5rpx;
 }
 .item .meta{
   flex: 1;

@@ -4,27 +4,27 @@
 <view class="container" wx:if="{{flag}}">
   <view class="publish">
     <label>标题</label>
-    <input type="text" bindinput='handleinfo' placeholder-style="color: lightgrey;" placeholder='{{title}}' />
+    <input type="text" bindinput='handleinfo' placeholder-style="color: lightgrey;" placeholder='最多输入30字！' />
   </view>
   <view class="publish">
     <label>地点</label>
-    <input type="text" bindinput='handleinfo1' placeholder-style="color: lightgrey;" placeholder='{{address}}' />
+    <input type="text" bindinput='handleinfo1' placeholder-style="color: lightgrey;" placeholder='最多输入60字！' />
   </view>
   <view class="publish">
     <label>事件</label>
-    <input type="text" bindinput='handleinfo2' placeholder-style="color: lightgrey;" placeholder='{{event}}' />
+    <input type="text" bindinput='handleinfo2' placeholder-style="color: lightgrey;" placeholder='最多输入100字！' />
   </view>
   <view class="publish">
     <label>姓名</label>
-    <input type="text" bindinput='handleinfo4' placeholder-style="color: lightgrey;" placeholder='{{name}}' />
+    <input type="text" bindinput='handleinfo4' placeholder-style="color: lightgrey;" placeholder='最多输入30字！' />
   </view>
   <view class="publish">
     <label>价格</label>
-    <input type="text" bindinput='handleinfo5' placeholder-style="color: lightgrey;" placeholder='{{price}}' />
+    <input type="text" bindinput='handleinfo5' placeholder-style="color: lightgrey;" placeholder='保留2位小数！' />
   </view>
   <view class="publish">
     <label>电话</label>
-    <input type="text" bindinput='handleinfo6' placeholder-style="color: lightgrey;" placeholder='{{contact}}' />
+    <input type="text" bindinput='handleinfo6' placeholder-style="color: lightgrey;" placeholder='请填写您的手机号！' />
   </view>
   <view class="publish">
     <label>图片</label>
@@ -40,15 +40,13 @@
 
   <view class='uploader' bindtap='upload' wx:if="{{showUpload}}"></view>
 
-  <button class='publish_button' bindtap='handleClick' hover-class='hover_action' hover-stay-time="3000">{{publicinfo}}</button>
+  <button wx:if="{{flag}}" class='publish_button' bindtap='handleClick' hover-class='hover_action' hover-stay-time="3000">发 布</button>
 </view>
 
   <!-- <image src='{{ image }}'></image> -->
   <!-- <view class="section_gap">
     <image wx:for="{{image}}" wx:key="{{index}}" src="{{image[index]}}" class='img_css'></image>
   </view> -->
-
-  
 
 </view>
 

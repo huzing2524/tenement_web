@@ -9,7 +9,7 @@
                 <text class="title">{{userInfo.nickName}}</text>
             </view>
             <view class="flex">
-                <text class="title">地址：{{userInfo.country}}{{userInfo.city}}{{userInfo.province}}</text>
+                <text class="title">用户：{{userInfo.country}}{{userInfo.city}}{{userInfo.province}}</text>
             </view>
         </view>
     </view>
