@@ -1,1 +1,55 @@
 /* pages/admin_login/admin_login.wxss */
+
+.domes_title {
+  font-size: 20pt;
+  color: lightblue;
+  padding: 70rpx 0;
+  margin: 0 15%;
+  text-align: center;
+  font-weight: 400;
+}
+
+.ui_cell {
+  display: flex;
+  position: relative;
+  height: 100rpx;
+  line-height: 60rpx;
+  padding: 20rpx 30rpx;
+  box-sizing: border-box;
+  border-bottom: 2rpx solid #eee;
+  transform: translate3d(0rpx, 0px, 0px);
+}
+
+.ui_cell_bd {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  flex: 1;
+}
+
+.ui_cell_bd_must {
+  position: relative;
+}
+
+.ui_cell_input {
+  height: 60rpx;
+  line-height: 60rpx;
+  flex: 3;
+}
+
+.ui_btn {
+  font-size: 13pt;
+  height: 90rpx;
+  line-height: 90rpx;
+  width: 85%;
+  text-align: center;
+  border-radius: 15rpx;
+  margin: 200rpx auto;
+  border: 2rpx solid lightblue;
+  background: lightblue;
+  color: #fff;
+}
+
+.hover_action {
+  opacity: 0.6;
+  background: blue;
+}
