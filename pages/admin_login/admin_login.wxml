@@ -4,7 +4,7 @@
 
 <view class="ui_cell">
 	<view class="ui_cell_bd ui_cell_bd_must">帐号</view>
-	<input class="ui_cell_input" type="text" bindinput="getAccount" placeholder="请输入帐号" placeholder-style="color: lightgrey;"></input>
+	<input class="ui_cell_input" type="text" bindinput="getUsername" placeholder="请输入帐号" placeholder-style="color: lightgrey;"></input>
 </view>
 
 <view class="ui_cell">

@@ -73,6 +73,15 @@ Page({
     wx.makePhoneCall({
       phoneNumber: phoneNumber,
     })
+  },
+
+  // 跳转详情页
+  goDetail: function(e){
+    var uuid = e.currentTarget.dataset.item_uuid;    
+
+    wx.navigateTo({
+      url: '../detail/detail?uuid=' + uuid,
+    })
   }
 
 })

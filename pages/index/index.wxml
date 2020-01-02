@@ -4,7 +4,7 @@
   <view class="section section_gap" wx:for-items="{{index_data}}" wx:for-item="item" wx:key="{{item.index}}">
     <view class="item">
       <image class="my_image" bindtap="preview" data-uuid="{{item.uuid}}" src='{{item.images[0]}}'></image>
-      <view class="meta">
+      <view class="meta" bindtap="goDetail" data-item_uuid="{{item.uuid}}">
         <text class="title">{{ item.title }}</text>
         <text class="info">地址：{{ item.address }}</text>
         <text class="info">事件：{{ item.event }}</text>
