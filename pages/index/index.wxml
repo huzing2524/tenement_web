@@ -1,52 +1,19 @@
 <!--index.wxml-->
-<!-- <view hidden="{{flag ? false : true}}"> Hidden </view> 测试三元表达式的-->
 
-<!-- <view class='admin'> -->
-  <!-- <label>密码</label>
-  <input class="pas" type="text" bindinput='password' placeholder='{{psw}}' value="{{value}}" />
-  <view>浏览量:{{num}}</view> -->
-
-  <!-- <view>
-    <button class='bt3' bindtap='click'>厨具 佐料 粮油 装修</button>
-  </view>
-</view> -->
-<!-- <button open-type="share" type="primary" hover-class="other-button-hover" class='btn1'>转发</button> -->
-<!-- <button type="primary" hover-class="other-button-hover" class='btn2' bindtap='bt_click'>发布</button> -->
 <view class="section">
   <view class="section section_gap" wx:for-items="{{index_data}}" wx:for-item="item" wx:key="{{item.index}}">
     <view class="item">
-      <image class="my_image" src='{{item.images[0]}}'></image>
+      <image class="my_image" bindtap="preview" data-uuid="{{item.uuid}}" src='{{item.images[0]}}'></image>
       <view class="meta">
         <text class="title">{{ item.title }}</text>
         <text class="info">地址：{{ item.address }}</text>
         <text class="info">事件：{{ item.event }}</text>
         <text class="info">姓名：{{ item.name }}</text>
         <text class="info">价格：{{ item.price }}</text>
-        <text class="info">联系人：{{ item.contact }}</text>
+        <text class="info" bindtap="phoneCall" data-phone="{{item.contact}}">联系人：{{ item.contact }}</text>
         <text class="info">时间：{{ item.time }}</text>
       </view>
     </view>
 
-    <!-- <view>{{item.title}}</view> -->
-    <!-- <view class="section__ctn">
-      <block wx:for='{{item.images}}' wx:key='index' wx:for-item='srcItem' style="flex-direction:row;" class="flex-wrp">
-        <image bindtap='topic_preview' data-id='{{item.uuid}}' class='img_css' src='{{srcItem}}'></image>
-      </block>
-
-      <view class="info">
-        <view>{{item.address}}</view>
-        <view>{{item.event}}</view>
-        <view>{{item.time}}</view>
-      </view>
-
-      <view class="info">
-        <view bindtap="del_info" data-aaa='{{item.uuid}}'>{{item.name}}</view>
-        <view>{{item.price}}元</view>
-        <view bindtap='phonecall' class='tel' style="color:red;" data-sss='{{index}}'>电话</view>
-      </view>
-      <view>
-        <view class="divLine"></view>
-      </view>
-    </view> -->
   </view>
 </view>
