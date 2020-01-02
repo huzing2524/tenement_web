@@ -8,11 +8,11 @@ Page({
     loginFlag: true,
     passwordFlag: true,
     input_type: "password",
-    account: "",
+    username: "",
     password: ""
   },
-  getAccount: function (e) {
-    this.data.account = e.detail.value
+  getUsername: function (e) {
+    this.data.username = e.detail.value
   },
   getPassword: function (e) {
     this.data.password = e.detail.value
@@ -36,18 +36,21 @@ Page({
     var that = this;
     that.setData({ passwordFlag: false })
 
-    console.log('account', that.data.account);
-    console.log('password', that.data.password);
-    if (that.data.account && that.data.password) {
+    if (that.data.username && that.data.password) {
       wx.request({
-        url: 'http://www.luoliming.xyz/admin_login',
+        // url: 'http://www.luoliming.xyz/admin_login',
+        url: 'http://192.168.31.66:8000/admin_login',
         data: {
-          "account": that.data.account,
+          "username": that.data.username,
           "password": that.data.password
         },
         method: "post",
         success: function (res) {
           if (res.statusCode == "200") {
+            // 保存jwt_token        
+            // console.log(res.data.jwt_token)
+            wx.setStorageSync('jwt_token', res.data.jwt_token)
+
             wx.showModal({
               title: '提示',
               content: '登录成功！',
@@ -64,7 +67,7 @@ Page({
           else if (res.statusCode == "400") {
             wx.showModal({
               title: '提示',
-              content: '参数不足，请重试！',
+              content: res.data.errmsg,
               showCancel: false
             })
           }

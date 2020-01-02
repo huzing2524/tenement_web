@@ -12,6 +12,32 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var uuid = options.uuid;
+    console.log('detail--->' + uuid)
+
+    wx.request({
+      // url: 'http://www.luoliming.xyz/detail/' + uuid,
+      url: 'http://192.168.31.66:8000/detail/' + uuid,
+      success(res) {
+        if (res.statusCode == "200") {
+          console.log(res.data)
+        }
+        else if (res.statusCode == "400") {
+          wx.showModal({
+            title: '提示',
+            content: res.data.errmsg,
+            showCancel: false
+          })
+        }
+        else if (res.statusCode == "404") {
+          wx.showModal({
+            title: '提示',
+            content: '请求地址不存在！',
+            showCancel: false
+          })
+        }
+      }
+    })
 
   },
 

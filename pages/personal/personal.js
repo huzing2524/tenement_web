@@ -29,7 +29,7 @@ Page({
   },
   
   goPage: function (event) {
-    console.log(event.currentTarget.dataset.log);
+    // console.log(event.currentTarget.dataset.log);
     wx.navigateTo({
       url: event.currentTarget.dataset.url
     })
