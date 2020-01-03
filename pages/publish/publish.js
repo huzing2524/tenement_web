@@ -136,10 +136,10 @@ Page({
                     }
                   }
                 })
-              } else if (res.statusCode == '400' || res.statusCode == '500') {
+              } else if (res.statusCode != '200') {
                 wx.showModal({
                   title: '提示',
-                  content: res.data.errmsg,
+                  content: res.data.errmsg || '发布信息失败，请重试！',
                   showCancel: false,
                   success: function (res) {
                     if (res.confirm) {
@@ -149,33 +149,7 @@ Page({
                     }
                   }
                 })
-              } else if (res.statusCode == '404') {
-                wx.showModal({
-                  title: '提示',
-                  content: '请求地址不存在！',
-                  showCancel: false,
-                  success: function (res) {
-                    if (res.confirm) {
-                      wx.reLaunch({
-                        url: '../publish/publish',
-                      })
-                    }
-                  }
-                })
-              } else if (res.statusCode == '504') {
-                wx.showModal({
-                  title: '提示',
-                  content: res.data.errmsg,
-                  showCancel: false,
-                  success: function (res) {
-                    if (res.confirm) {
-                      wx.reLaunch({
-                        url: '../publish/publish',
-                      })
-                    }
-                  }
-                })
-              }
+              } 
             },
             fail: function () {
               wx.showModal({
