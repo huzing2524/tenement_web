@@ -16,7 +16,7 @@ Page({
     uploaderList: [],
     uploaderNum: 0,
     showUpload: true,
-    flag: true
+    flag: false
   },
 
   handleinfo(e) {
@@ -99,15 +99,11 @@ Page({
       }
     })
   },
-  handlePublishSuccess(data) {
-    this.setData({
-      flag: false
-    })
-  },
+
   // 防止按钮重复提交
   handleClick() {
     let that = this;
-    that.handlePublishSuccess();
+    that.setData({ flag: true });
 
     if (that.data.title && that.data.address && that.data.event && that.data.name && that.data.price && that.data.contact) {
       // 手机号码格式 正则表达式校验      
@@ -127,7 +123,20 @@ Page({
             },
             method: "post",
             success: function (res) {
-              if (res.statusCode == '400') {
+              if (res.statusCode == '200') {
+                wx.showModal({
+                  title: '提示',
+                  content: '发布成功！',
+                  showCancel: false,
+                  success: function (res) {
+                    if (res.confirm) {
+                      wx.reLaunch({
+                        url: '../index/index',
+                      })
+                    }
+                  }
+                })
+              } else if (res.statusCode == '400' || res.statusCode == '500') {
                 wx.showModal({
                   title: '提示',
                   content: res.data.errmsg,
@@ -140,15 +149,28 @@ Page({
                     }
                   }
                 })
-              } else if (res.statusCode == '200') {
+              } else if (res.statusCode == '404') {
                 wx.showModal({
                   title: '提示',
-                  content: '发布成功！',
+                  content: '请求地址不存在！',
                   showCancel: false,
                   success: function (res) {
                     if (res.confirm) {
                       wx.reLaunch({
-                        url: '../index/index',
+                        url: '../publish/publish',
+                      })
+                    }
+                  }
+                })
+              } else if (res.statusCode == '504') {
+                wx.showModal({
+                  title: '提示',
+                  content: res.data.errmsg,
+                  showCancel: false,
+                  success: function (res) {
+                    if (res.confirm) {
+                      wx.reLaunch({
+                        url: '../publish/publish',
                       })
                     }
                   }

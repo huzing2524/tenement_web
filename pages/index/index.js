@@ -67,14 +67,6 @@ Page({
     })
   },
 
-  // 打电话
-  phoneCall: function(e) {
-    let phoneNumber = e.currentTarget.dataset.phone;
-    wx.makePhoneCall({
-      phoneNumber: phoneNumber,
-    })
-  },
-
   // 跳转详情页
   goDetail: function(e){
     var uuid = e.currentTarget.dataset.item_uuid;    
