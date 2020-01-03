@@ -8,13 +8,14 @@
 
 .publish label {
   margin: 0rpx 20rpx 0rpx 20rpx;
+  opacity: 0.7;
   /* margin-left: 20rpx;
   margin-right: 20rpx; */
 }
 
 .publish input {
   position: absolute;
-  left: 200rpx;
+  left: 150rpx;
   right: 20rpx;
   height: 80rpx;
   color: black;
@@ -23,7 +24,7 @@
 /* 图片上传区域 start */
 .cell_right {
   position: absolute;
-  left: 200rpx;
+  left: 150rpx;
   color: lightgray;
 }
 

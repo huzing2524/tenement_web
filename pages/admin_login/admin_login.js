@@ -38,8 +38,8 @@ Page({
 
     if (that.data.username && that.data.password) {
       wx.request({
-        // url: 'http://www.luoliming.xyz/admin_login',
-        url: 'http://192.168.31.66:8000/admin_login',
+        url: 'http://www.luoliming.xyz/admin_login',
+        // url: 'http://192.168.31.66:8000/admin_login',
         data: {
           "username": that.data.username,
           "password": that.data.password

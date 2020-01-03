@@ -10,7 +10,7 @@
         <text class="info">事件：{{ item.event }}</text>
         <text class="info">姓名：{{ item.name }}</text>
         <text class="info">价格：{{ item.price }}</text>
-        <text class="info" bindtap="phoneCall" data-phone="{{item.contact}}">联系人：{{ item.contact }}</text>
+        <text class="info">联系人：{{ item.contact }}</text>
         <text class="info">时间：{{ item.time }}</text>
       </view>
     </view>

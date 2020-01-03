@@ -1,6 +1,4 @@
-<!--logs.wxml-->
-
-<view class="container" wx:if="{{flag}}">
+<view class="container">
 	<view class="publish">
 		<label>标题</label>
 		<input type="text" bindinput='handleinfo' placeholder-style="color: lightgrey;" placeholder='最多输入30字' />
@@ -38,7 +36,7 @@
 
 		<view class='uploader' bindtap='upload' wx:if="{{showUpload}}"></view>
 
-		<button wx:if="{{flag}}" class='publish_button' bindtap='handleClick' hover-class='hover_action' hover-stay-time="3000">发 布</button>
+		<button disabled="{{flag}}" class='publish_button' bindtap='handleClick' hover-class='hover_action' hover-stay-time="3000">发 布</button>
 	</view>
 
 </view>
