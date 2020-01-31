@@ -1,0 +1,4 @@
+<!--pages/pay/pay.wxml-->
+<view class="money">我的余额￥{{money}}</view>
+<button type="primary" bindtap="goRegist"> 确认全部转出 </button>
+

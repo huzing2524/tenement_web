@@ -1,41 +1,4 @@
 /**index.wxss**/
-
-/* 
-我的css 开始
- */
-.item{
-  display: flex;
-  padding: 10rpx 10rpx;
-  border-bottom: 1rpx solid #eee;
-  cursor: pointer;
-}
-.item .my_image{
-  width: 200rpx;
-  height: 250rpx;
-  margin-right: 20rpx;
-  margin-left: 5rpx;
-}
-.item .meta{
-  flex: 1;
-}
-.item .meta .title{
-  display: block;
-  margin-bottom: 15rpx;
-}
-.item .meta .title{
-  font-size: 32rpx;
-  font-weight: bold;
-}
-.item .meta .info{
-  display: block;
-  font-size: 22rpx;
-  color: #3b3b3b;
-}
-
-/* 
-结束
- */
-
 .section{
   margin: 2rpx
 }
@@ -49,6 +12,24 @@
   color: red
 }
 
+.card{
+  margin: 5px;
+  background-color:rgb(213, 255, 205);
+  justify-content: space-between;
+  border-bottom-left-radius: 10px;
+  border-top-left-radius: 10px;
+}
+
+.tlecor{
+  background-color: #5555FF;
+  text-align: center
+}
+
+.job-tel{
+  text-align: center
+}
+
+.bottom_css {width:90rpx; height: 95rpx;}  
 
 @import "../lib/weui.wxss";
 
@@ -100,16 +81,18 @@ box-sizing:border-box;
 font-size:17px;
 text-align:center;
 text-decoration:none;
-line-height:1.5;
+line-height:1.5555555600000004;
 border-radius:5px;
 -webkit-tap-highlight-color:transparent;
 overflow:hidden;
 color:#f8f8f2;
 background-color:rgb(20, 204, 4);
-width: 200px;
+width: 150px;
 }
 .pas{
   width: 80px;
   margin: 2px;
 }
+
+.img_css {width:149rpx; height: 149rpx;}
 

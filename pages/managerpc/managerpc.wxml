@@ -1,0 +1,46 @@
+<!--pages/referencespc/referencespc.wxml介绍人个人中心页-->
+<view class="pc_on">
+  <image src="../show_img/97.jpg" class="person"></image>
+  <view>{{tel}}</view>
+  <!-- <view>余额：{{balance}}</view> -->
+  <button style="background-color:#289813;" bindtap="gopay">余额：{{balance}}</button>
+</view>
+<!-- 个人中心每个view 里面装的内容 -->
+<view class="section section_gap" wx:for-items="{{array}}" wx:for-item="item" wx:key="id">
+    <view class="page-section">
+      <!-- divlive横线 -->
+      <view>
+        <view class="divLine"></view>
+      </view>
+      <!-- 时间、灶具类型、订单状态 -->
+      <view class="info">
+        <view>{{item.date}}</view><view>{{item.event}}</view>
+        
+        <view wx:if="{{item.state==1}}" style="color:#8F8F8F;">已完成</view>
+        <view wx:elif="{{item.state==2}}" style="color:#8F8F8F;">已取消</view>
+        <view wx:else style="color:#8F8F8F;">进行中</view>
+      </view>
+      <!-- 地址图片、地址文字、订单状态 -->
+      <view class="pc_info">
+        <image src="../show_img/98.jpg" class="add_pic"></image>
+        <view class="add_info">{{item.address}}</view>
+      </view>
+      <!-- pc图片、名字、电话 -->
+      <view class="pc_info1">
+        <view class="pc_info1">
+          <image src="../show_img/99.jpg" class="pc_pic1"></image>
+          <!-- 商户名字 -->
+          <view bindtap="del_info" data-aaa='{{item.uuid}}' class="add_info1">{{item.name}}<text class="sh">商</text></view>
+          <image src="../show_img/94.jpg" class="pc_pic1"></image>
+        </view> 
+        <view class="pc_info1">
+          <image src="../show_img/99.jpg" class="pc_pic1"></image>
+          <!-- 介绍人名字 -->
+          <view bindtap="del_info" data-aaa='{{item.uuid}}' class="add_info1">{{item.name}}<text class="sh">介</text></view>
+          <image src="../show_img/94.jpg" class="pc_pic1"></image>
+        </view>
+      
+      </view>
+
+    </view>
+  </view>

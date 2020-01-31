@@ -1,0 +1,100 @@
+/* pages/managepc/managepc.wxss */
+/* 个人中心上面的布局*/
+.pc_on{
+  text-align: center;
+}
+
+/*个人中心图标  */
+.person{
+  width: 12%;
+  height: 80rpx
+}
+
+/* 警告图标 */
+.warning{
+  width: 100%;
+  height: 150rpx
+}
+
+/* 个人中心间隔线 */
+.divLine{
+ background: #E0E3DA;
+ width: 100%;
+ height: 5rpx;
+}
+
+/* 个人中心时间 灶具类型和订单状态 */
+.info{
+  display: flex;
+  margin: 20rpx;
+  justify-content: space-between
+}
+
+/* 地点图片 */
+.add_pic{
+  width: 80rpx;
+  height: 90rpx
+}
+
+/* 个人中心信息 */
+.pc_info{
+  display: flex;
+}
+
+/* 地点位置调整 */
+.add_info{
+  width: 450rpx;
+  margin:0rpx 70rpx 0rpx 0rpx;
+}
+
+/* 收款位置调整 */
+.add_money{
+  margin-top: 15rpx
+}
+
+/*商户图片  */
+.pc_pic1{
+  width: 70rpx;
+  height: 70rpx;
+  margin: 10rpx 20rpx 0rpx 7rpx
+}
+
+/* add_info1 */
+.add_info1{
+  margin-top: 20rpx
+}
+
+/* 整体间距 */
+.page-section{
+  margin-bottom: 20rpx;
+}
+
+/* 电话调整 */
+.tel{
+  margin-right: 10rpx;
+  width: 15%;
+  height: 80rpx;
+  background-color: beige;
+  color: white;
+  border-radius: 98rpx;
+  bottom: 5px;
+  font-size: 25rpx
+}
+
+/* wx和tel图标调整 */
+.pic_wx{
+  margin-right: 10rpx;
+  width: 80rpx;
+  height: 80rpx
+}
+
+/* pc_info1最后一行调整 */
+.pc_info1{
+  display: flex;
+  justify-content: space-between
+}
+
+.sh{
+  font-size: 22rpx;
+  color: #009ACD
+}

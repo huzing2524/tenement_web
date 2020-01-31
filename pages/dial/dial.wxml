@@ -1,0 +1,12 @@
+<!--pages/dial/dial.wxml-->
+<radio-group bindchange="laternext">
+    <radio value="单灶" >新开业单灶</radio>
+    <radio value="双灶" >新开业双灶</radio>
+    <radio value="老字号" checked="true">老字号</radio>
+</radio-group>
+<view class="info">
+  <label>地点：</label><input type="text" placeholder='例：汉阳王家湾摩尔城牛牛餐厅' bindinput="handleinfo"></input>
+</view>
+<image src="../show_img/3.jpg" class="bg"></image>
+<button bindtap='phonecall' class='tel' style="backgroundcolor:red;" data-sss='{{index}}'>拨打商户电话</button>
+

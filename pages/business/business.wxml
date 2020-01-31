@@ -1,0 +1,59 @@
+<!--pages/business/business.wxml商户个人中心页-->
+<view class="pc_on">
+  <image src="../show_img/97.jpg" class="person"></image>
+  <view>{{tel}}</view>
+  <!-- 展示的信息 -->
+  <image src="../show_img/3.jpg" class="warning"></image>
+  <view>环保油配送销售送灶具油箱包安装维修给 <text style="color:red">介绍费</text></view>
+  <block wx:for='{{images}}' wx:key='index' wx:for-item='srcItem' style="flex-direction:row;" class="flex-wrp">
+        <image class='img_css' src='{{srcItem}}'></image>
+      </block>
+      <!-- 自己发布的信息 -->
+      <view class="info">
+        <view>武汉</view><view>乙醇配送</view><view>{{item.time}}</view>
+      </view>
+
+      <view class="info">
+        <view data-aaa='{{item.uuid}}'>{{item.name}}</view>
+        <view>价格面议</view>
+        <view bindtap='phonecall' class='refresh' style="color:#ffffff;" data-sss='{{index}}'>刷新置顶</view>
+      </view>
+
+</view>
+<!-- 个人中心每个view 里面装的内容 -->
+<view class="section section_gap" wx:for-items="{{array}}" wx:for-item="item" wx:key="id">
+    <view class="page-section">
+      <!-- divlive横线 -->
+      <view>
+        <view class="divLine"></view>
+      </view>
+      <!-- 时间、灶具类型、订单状态 -->
+      <view class="info">
+        <view>{{item.date}}</view><view>{{item.event}}</view>
+        
+        <view wx:if="{{item.state==1}}" style="color:#8F8F8F;">已完成</view>
+        <view wx:elif="{{item.state==2}}" style="color:#8F8F8F;">已取消</view>
+        <view wx:else style="color:#8F8F8F;">进行中</view>
+      </view>
+      <!-- 地址图片、地址文字、订单状态 -->
+      <view class="pc_info">
+        <image src="../show_img/98.jpg" class="add_pic"></image>
+        <view class="add_info">{{item.address}}</view>
+        <view wx:if="{{item.state==1}}" class="add_money">已付{{item.price}}元</view>
+         <view wx:else ></view>
+      </view>
+      <!-- pc图片、名字、电话 -->
+      <view class="pc_info1">
+        <view class="pc_info1">
+          <image src="../show_img/99.jpg" class="pc_pic1"></image>
+          <view bindtap="del_info" data-aaa='{{item.uuid}}' class="add_info1">{{item.name}}</view>
+        </view> 
+      <!-- 这里需要用if else 做状态判断 -->
+          <view wx:if="{{item.state==2}}"><button class='zf' style="color:#ffffff;">去支付</button></view>
+          <view wx:elif="{{item.state==3}}" class="bt"><image src="../show_img/94.jpg" class="pic_wx"></image><button class='zf' style="color:#ffffff;">取消</button><button class='zf' style="color:#ffffff;">去支付</button></view>
+          <view wx:else></view>
+        <!-- <button bindtap='phonecall' data-sss='{{index}}'>电话</button>  -->
+      </view>
+
+    </view>
+  </view>

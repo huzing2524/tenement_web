@@ -10,19 +10,12 @@
 		"minified": true,
 		"newFeature": true,
 		"autoAudits": false,
-		"checkInvalidKey": true,
-		"checkSiteMap": true,
-		"uploadWithSourceMap": true,
-		"babelSetting": {
-			"ignore": [],
-			"disablePlugins": [],
-			"outputPath": ""
-		}
+		"checkInvalidKey": true
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.0.4",
-	"appid": "wx58b352605c6c9cde",
-	"projectname": "tenement_web",
+	"libVersion": "2.7.5",
+	"appid": "wx40398f38c7130ad2",
+	"projectname": "ethanol_luoliming",
 	"debugOptions": {
 		"hidedInDevtools": []
 	},

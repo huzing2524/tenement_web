@@ -1,38 +1,18 @@
 {
   "pages": [
-    "pages/index/index",
-    "pages/publish/publish",
-    "pages/detail/detail",
-    "pages/personal/personal",
-    "pages/upload/upload",
-    "pages/admin_login/admin_login"
+
+    "pages/getinfo/getinfo",
+    "pages/index/index",       
+    "pages/pay/pay",
+    "pages/business/business",
+    "pages/managerpc/managerpc",
+    "pages/referencespc/referencespc",         
+        
+    "pages/dial/dial",                
+              
+    "pages/login/login"
+
   ],
-  "tabBar": {
-    "color": "#666",
-    "selectedColor": "#268dcd",
-    "borderStyle": "white",
-    "backgroundColor": "#fafafa",
-    "list": [
-      {
-        "pagePath": "pages/index/index",
-        "text": "",
-        "iconPath": "pages/icons/home_unselected.png",
-        "selectedIconPath": "pages/icons/home_selected.png"
-      },
-      {
-        "pagePath": "pages/publish/publish",
-        "text": "",
-        "iconPath": "pages/icons/publish_unselected.png",
-        "selectedIconPath": "pages/icons/publish_selected.png"
-      },
-      {
-        "pagePath": "pages/personal/personal",
-        "text": "",
-        "iconPath": "pages/icons/personal_unselected.png",
-        "selectedIconPath": "pages/icons/personal_selected.png"
-      }
-    ]
-  },
   "window": {
     "enablePullDownRefresh": true,
     "backgroundTextStyle": "dark",

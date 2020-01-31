@@ -1,0 +1,7 @@
+/* pages/pay/pay.wxss */
+.money{
+  font-size: 50rpx;
+  text-align: center;
+  margin-top: 100rpx;
+  margin-bottom: 100rpx
+}

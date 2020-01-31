@@ -1,0 +1,12 @@
+<!--pages/getinfo/getinfo.wxml-->
+<view class="text" >请选择您的职位类别</view>
+<radio-group bindchange="laternext">
+    <radio value="商家" >醇基燃料商家入驻</radio>
+    <image src="../show_img/2.jpg" class="bg"></image>
+    <radio value="业务介绍人">醇基燃料业务介绍人</radio>
+</radio-group>
+<view class="info">
+      <label class="write">我的名字： </label>
+      <input type="text" placeholder='{{Explain}}' bindinput="handleinfo"></input>
+</view>
+<button wx:if="{{flag}}" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" hover-class='hover_action' hover-stay-time="3000" class='publish_button'>绑定手机号</button>
