@@ -112,6 +112,7 @@ Page({
         if (!isNaN(that.data.price)) {
           wx.request({
             url: 'http://www.luoliming.xyz/publication_info',
+            // url: 'http://192.168.31.66:8000/publication_info',
             data: {
               'title': that.data.title,
               'address': that.data.address,
@@ -123,7 +124,7 @@ Page({
             },
             method: "post",
             success: function (res) {
-              if (res.statusCode == '200') {
+              if (res.statusCode == '201') {
                 wx.showModal({
                   title: '提示',
                   content: '发布成功！',
@@ -136,7 +137,7 @@ Page({
                     }
                   }
                 })
-              } else if (res.statusCode != '200') {
+              } else if (res.statusCode != '200' || res.statusCode != '201') {
                 wx.showModal({
                   title: '提示',
                   content: res.data.errmsg || '发布信息失败，请重试！',

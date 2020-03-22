@@ -68,7 +68,7 @@ Page({
         'Authorization': wx.getStorageSync('jwt_token')
       },
       success(res) {
-        if (res.statusCode == "200") {
+        if (res.statusCode == "204") {
           wx.showModal({
             title: '提示',
             content: '删除成功！',

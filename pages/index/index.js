@@ -14,6 +14,7 @@ Page({
     var that = this;
     wx.request({
       url: 'http://www.luoliming.xyz/page_list',
+      // url: 'http://192.168.31.66:8000/page_list',
       method: 'get',
       success: function(res) {
         // console.log('res.data', res.data)
